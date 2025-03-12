@@ -20,7 +20,7 @@ export default function SearchInput({
   isDropdownOpen
 }: SearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [placeholderVisible, setPlaceholderVisible] = useState(true);
+//   const [placeholderVisible, setPlaceholderVisible] = useState(true);
   
   useEffect(() => {
     if (value || !inputRef.current) {

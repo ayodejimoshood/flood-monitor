@@ -43,7 +43,7 @@ export default function Home() {
             maxWidth: '600px',
             margin: '0 auto 1.5rem'
           }}>
-            Real-time flood data from the UK Environmental Agency's measurement stations across the country.
+            Real-time flood data from the UK Environmental Agency&apos;s measurement stations across the country.
           </p>
           <div style={{ 
             display: 'flex', 

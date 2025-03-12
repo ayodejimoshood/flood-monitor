@@ -161,8 +161,8 @@ export default function ReadingsChart({ measure }: ReadingsChartProps) {
                 return time;
               }}
               formatter={(value) => [
-                <span style={{ color: 'var(--primary-color)', fontWeight: 600 }}>{value} {measure.unitName}</span>, 
-                <span style={{ color: 'var(--text-secondary)' }}>{measure.parameterName}</span>
+                <span key="value" style={{ color: 'var(--primary-color)', fontWeight: 600 }}>{value} {measure.unitName}</span>, 
+                <span key="label" style={{ color: 'var(--text-secondary)' }}>{measure.parameterName}</span>
               ]}
             />
             <Legend 
