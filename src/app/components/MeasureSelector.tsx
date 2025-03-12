@@ -111,7 +111,7 @@ export default function MeasureSelector({ station, onMeasureSelect }: MeasureSel
       
       {selectedMeasure && (
         <div className="station-info">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', marginTop: '0.75rem' }}>
             <h3 style={{ margin: 0, color: 'var(--primary-color)' }}>
               {selectedMeasure.parameterName}
             </h3>

@@ -189,7 +189,7 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
           <div style={{ 
             display: 'flex', 
             justifyContent: 'space-between', 
-            alignItems: 'flex-start',
+            alignItems: 'center',
             marginBottom: '1rem'
           }}>
             <h3 style={{ 

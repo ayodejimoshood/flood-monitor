@@ -89,7 +89,7 @@ export default function Home() {
             {selectedStation ? (
               <>
                 <div className="card" style={{ 
-                  marginBottom: '2rem',
+                  // marginBottom: '2rem',
                   border: '1px solid var(--border-color)',
                   boxShadow: 'var(--shadow)',
                   borderRadius: 'var(--radius)',
@@ -104,7 +104,7 @@ export default function Home() {
                 {selectedMeasure ? (
                   <>
                     <div className="card" style={{ 
-                      marginBottom: '2rem',
+                      // marginBottom: '2rem',
                       border: '1px solid var(--border-color)',
                       boxShadow: 'var(--shadow)',
                       borderRadius: 'var(--radius)',
@@ -113,7 +113,7 @@ export default function Home() {
                       <ReadingsChart measure={selectedMeasure} />
                     </div>
                     <div className="card" style={{ 
-                      marginBottom: '2rem',
+                      // marginBottom: '2rem',
                       border: '1px solid var(--border-color)',
                       boxShadow: 'var(--shadow)',
                       borderRadius: 'var(--radius)',
@@ -202,7 +202,7 @@ export default function Home() {
                 </svg>
                 <h3 style={{ 
                   fontSize: '1.3rem', 
-                  fontWeight: 700, 
+                  // fontWeight: 700, 
                   marginBottom: '1rem',
                   color: 'var(--text-color)'
                 }}>
