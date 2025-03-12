@@ -132,6 +132,14 @@ export default function RootLayout({
               margin: 0, 
               fontSize: '0.75rem', 
               color: 'var(--text-secondary)',
+              textAlign: 'center',
+            }}>
+              Developed with <span style={{ color: 'var(--error-color)' }}>❤</span> by <span style={{ fontWeight: 500 }}>Ayodeji Moshood</span>
+            </p>
+            <p style={{ 
+              margin: 0, 
+              fontSize: '0.75rem', 
+              color: 'var(--text-secondary)',
               opacity: 0.8,
               textAlign: 'center',
             }}>

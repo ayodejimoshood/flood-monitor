@@ -113,9 +113,9 @@ p {
   overflow: visible !important;
 }
 
-.card:hover {
+/* .card:hover {
   box-shadow: var(--shadow-lg);
-}
+} */
 
 .btn {
   display: inline-flex;
@@ -546,7 +546,7 @@ select:focus, input:focus {
 
 .search-field:focus-within {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+  /* box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1); */
 }
 
 .search-icon {

@@ -150,7 +150,7 @@ export default function ReadingsChart({ measure }: ReadingsChartProps) {
                 backgroundColor: 'var(--card-background)', 
                 borderColor: 'var(--border-color)',
                 borderRadius: 'var(--radius-sm)',
-                boxShadow: 'var(--shadow)'
+                // boxShadow: 'var(--shadow)'
               }}
               labelStyle={{ color: 'var(--text-secondary)', fontWeight: 600, marginBottom: '0.25rem' }}
               labelFormatter={(time, item) => {

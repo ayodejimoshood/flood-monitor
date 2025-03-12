@@ -76,7 +76,7 @@ export default function Home() {
           <div className="sidebar">
             <div className="card station-selector-card" style={{ 
               border: '1px solid var(--border-color)',
-              boxShadow: 'var(--shadow)',
+              // boxShadow: 'var(--shadow)',
               borderRadius: 'var(--radius)',
               overflow: 'hidden',
               height: '100%'
@@ -91,7 +91,7 @@ export default function Home() {
                 <div className="card" style={{ 
                   // marginBottom: '2rem',
                   border: '1px solid var(--border-color)',
-                  boxShadow: 'var(--shadow)',
+                  // boxShadow: 'var(--shadow)',
                   borderRadius: 'var(--radius)',
                   overflow: 'hidden',
                 }}>
@@ -106,7 +106,7 @@ export default function Home() {
                     <div className="card" style={{ 
                       // marginBottom: '2rem',
                       border: '1px solid var(--border-color)',
-                      boxShadow: 'var(--shadow)',
+                      // boxShadow: 'var(--shadow)',
                       borderRadius: 'var(--radius)',
                       overflow: 'hidden',
                     }}>
@@ -115,7 +115,7 @@ export default function Home() {
                     <div className="card" style={{ 
                       // marginBottom: '2rem',
                       border: '1px solid var(--border-color)',
-                      boxShadow: 'var(--shadow)',
+                      // boxShadow: 'var(--shadow)',
                       borderRadius: 'var(--radius)',
                       overflow: 'hidden',
                     }}>
@@ -129,7 +129,7 @@ export default function Home() {
                     backgroundColor: 'var(--card-background)',
                     border: '1px solid var(--border-color)',
                     borderRadius: 'var(--radius)',
-                    boxShadow: 'var(--shadow)',
+                    // boxShadow: 'var(--shadow)',
                     marginBottom: '2rem',
                   }}>
                     <svg 
@@ -178,7 +178,7 @@ export default function Home() {
                 backgroundColor: 'var(--card-background)',
                 border: '1px solid var(--border-color)',
                 borderRadius: 'var(--radius)',
-                boxShadow: 'var(--shadow)',
+                // boxShadow: 'var(--shadow)',
                 marginBottom: '2rem',
               }}>
                 <svg 

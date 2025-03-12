@@ -184,7 +184,7 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
           backgroundColor: 'var(--card-background)',
           borderRadius: 'var(--radius)',
           border: '1px solid var(--border-color)',
-          boxShadow: 'var(--shadow-sm)'
+          // boxShadow: 'var(--shadow-sm)'
         }}>
           <div style={{ 
             display: 'flex', 
