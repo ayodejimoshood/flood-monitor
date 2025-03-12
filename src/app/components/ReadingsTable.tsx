@@ -80,9 +80,9 @@ export default function ReadingsTable({ measure }: ReadingsTableProps) {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <div className="card">
+    <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-        <h2 style={{ margin: 0 }}>
+        <h2 style={{ margin: 0, fontSize: '1.3rem' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '0.5rem', verticalAlign: 'middle' }}>
             <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
             <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
@@ -95,7 +95,7 @@ export default function ReadingsTable({ measure }: ReadingsTableProps) {
           alignItems: 'center', 
           backgroundColor: 'rgba(59, 130, 246, 0.1)', 
           padding: '0.5rem 0.75rem', 
-          borderRadius: 'var(--radius-sm)',
+          borderRadius: 'var(--radius-lg)',
           fontSize: '0.875rem',
           color: 'var(--primary-color)',
           fontWeight: 500

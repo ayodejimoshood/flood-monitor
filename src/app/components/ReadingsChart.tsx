@@ -87,9 +87,9 @@ export default function ReadingsChart({ measure }: ReadingsChartProps) {
   const lastReading = new Date(readings[readings.length - 1].dateTime);
 
   return (
-    <div className="card">
+    <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-        <h2 style={{ margin: 0 }}>
+        <h2 style={{ margin: 0, fontSize: '1.3rem' }}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '0.5rem', verticalAlign: 'middle' }}>
             <path d="M3 3v18h18"></path>
             <path d="M18.4 8.64 8.78 18.26"></path>

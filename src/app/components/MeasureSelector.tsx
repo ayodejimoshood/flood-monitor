@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Measure, Station } from '../types';
 import { getStationMeasures } from '../api';
+import SelectInput from './SelectInput';
 
 interface MeasureSelectorProps {
   station: Station;
@@ -78,60 +79,34 @@ export default function MeasureSelector({ station, onMeasureSelect }: MeasureSel
     groupedMeasures[measure.parameterName].push(measure);
   });
 
+  // Format measures for the SelectInput component
+  const measureOptions = measures.map(measure => ({
+    value: measure['@id'],
+    label: `${measure.qualifier ? measure.qualifier : measure.parameterName}${measure.unitName ? ` (${measure.unitName})` : ''}`,
+    group: measure.parameterName
+  }));
+
   return (
-    <div className="card">
-      <h2>
+    <div>
+      <h2 style={{ 
+        fontSize: '1.3rem', 
+        marginBottom: '1.5rem',
+        display: 'flex',
+        alignItems: 'center',
+      }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '0.5rem', verticalAlign: 'middle' }}>
           <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
         </svg>
         Select a Measure
       </h2>
-      <div className="form-group">
-        <label htmlFor="measure-select">Available measures:</label>
-        <div style={{ position: 'relative' }}>
-          <select
-            id="measure-select"
-            value={selectedMeasure?.['@id'] || ''}
-            onChange={(e) => handleMeasureSelect(e.target.value)}
-          >
-            <option value="">-- Select a measure --</option>
-            {Object.entries(groupedMeasures).map(([paramName, paramMeasures]) => (
-              <optgroup key={paramName} label={paramName}>
-                {paramMeasures.map(measure => (
-                  <option key={measure['@id']} value={measure['@id']}>
-                    {measure.qualifier ? `${measure.qualifier}` : paramName} 
-                    {measure.unitName ? ` (${measure.unitName})` : ''}
-                  </option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="16" 
-            height="16" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-            style={{ 
-              position: 'absolute', 
-              right: '1rem', 
-              top: '50%', 
-              transform: 'translateY(-50%)',
-              pointerEvents: 'none',
-              color: 'var(--text-secondary)'
-            }}
-          >
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </div>
-        <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
-          {measures.length} measures available
-        </div>
-      </div>
+      
+      <SelectInput
+        label="Available measures:"
+        options={measureOptions}
+        value={selectedMeasure?.['@id'] || ''}
+        onChange={handleMeasureSelect}
+        placeholder="-- Select a measure --"
+      />
       
       {selectedMeasure && (
         <div className="station-info">
