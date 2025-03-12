@@ -25,8 +25,9 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
         const sortedStations = stationsData.sort((a, b) => a.label.localeCompare(b.label));
         setStations(sortedStations);
         setLoading(false);
-      } catch (err) {
+      } catch (error) {
         setError('Failed to load stations. Please try again later.');
+        console.error('Error fetching stations:', error);
         setLoading(false);
       }
     };
@@ -85,7 +86,7 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
   }
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: '1.5rem' }}>
       <h2 style={{ 
         fontSize: '1.3rem', 
         // fontWeight: 700, 
@@ -134,7 +135,8 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
         {isDropdownOpen && (
           <div 
             id="station-dropdown"
-            className="dropdown"
+            className="select-dropdown"
+            style={{ position: 'absolute', top: '100%', zIndex: 1000 }}
           >
             {filteredStations.length === 0 ? (
               <div style={{ padding: '1.5rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
@@ -147,12 +149,12 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
                 <div style={{ fontSize: '0.875rem' }}>Try a different search term</div>
               </div>
             ) : (
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <div className="select-options">
                 {filteredStations.slice(0, 100).map((station) => (
-                  <li 
+                  <div 
                     key={station.stationReference}
                     onClick={() => handleStationSelect(station)}
-                    className={`dropdown-item ${selectedStation?.stationReference === station.stationReference ? 'active' : ''}`}
+                    className={`select-option ${selectedStation?.stationReference === station.stationReference ? 'active' : ''}`}
                     role="option"
                     aria-selected={selectedStation?.stationReference === station.stationReference}
                   >
@@ -162,14 +164,14 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
                       {station.riverName && station.town && <span> • </span>}
                       {station.town && <span>Town: {station.town}</span>}
                     </div>
-                  </li>
+                  </div>
                 ))}
                 {filteredStations.length > 100 && (
-                  <li style={{ padding: '0.75rem 1rem', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.875rem', borderTop: '1px solid var(--border-color)' }}>
+                  <div style={{ padding: '0.75rem 1rem', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.875rem', borderTop: '1px solid var(--border-color)' }}>
                     Showing 100 of {filteredStations.length} results. Refine your search to see more.
-                  </li>
+                  </div>
                 )}
-              </ul>
+              </div>
             )}
           </div>
         )}

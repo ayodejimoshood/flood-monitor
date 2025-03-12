@@ -22,8 +22,9 @@ export default function MeasureSelector({ station, onMeasureSelect }: MeasureSel
         const measuresData = await getStationMeasures(station.stationReference);
         setMeasures(measuresData);
         setLoading(false);
-      } catch (err) {
+      } catch (error) {
         setError('Failed to load measures for this station. Please try again later.');
+        console.error('Error fetching measures:', error);
         setLoading(false);
       }
     };
@@ -90,7 +91,7 @@ export default function MeasureSelector({ station, onMeasureSelect }: MeasureSel
     <div>
       <h2 style={{ 
         fontSize: '1.3rem', 
-        marginBottom: '1.5rem',
+        // marginBottom: '1.5rem',
         display: 'flex',
         alignItems: 'center',
       }}>

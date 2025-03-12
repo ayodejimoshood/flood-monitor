@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface SearchInputProps {
   placeholder: string;
@@ -19,6 +19,68 @@ export default function SearchInput({
   onToggleDropdown,
   isDropdownOpen
 }: SearchInputProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [placeholderVisible, setPlaceholderVisible] = useState(true);
+  
+  useEffect(() => {
+    if (value || !inputRef.current) {
+      return; // Don't animate if there's a value or no input ref
+    }
+    
+    const input = inputRef.current;
+    const terms = ["station name", "river", "town"];
+    const prefix = "Search by ";
+    let currentIndex = 0;
+    let isDeleting = false;
+    let currentText = "";
+    
+    const updatePlaceholder = () => {
+      input.placeholder = currentText;
+    };
+    
+    const typeText = () => {
+      const fullText = prefix + terms[currentIndex] + "...";
+      
+      if (isDeleting) {
+        // Deleting phase
+        if (currentText.length > prefix.length) {
+          currentText = currentText.slice(0, -1);
+          updatePlaceholder();
+          setTimeout(typeText, 50);
+        } else {
+          // Move to next term
+          isDeleting = false;
+          currentIndex = (currentIndex + 1) % terms.length;
+          setTimeout(typeText, 500);
+        }
+      } else {
+        // Typing phase
+        if (currentText.length === 0) {
+          currentText = prefix;
+          updatePlaceholder();
+          setTimeout(typeText, 100);
+        } else if (currentText.length < fullText.length) {
+          currentText = fullText.slice(0, currentText.length + 1);
+          updatePlaceholder();
+          setTimeout(typeText, 100);
+        } else {
+          // Pause at the end before deleting
+          setTimeout(() => {
+            isDeleting = true;
+            typeText();
+          }, 2000);
+        }
+      }
+    };
+    
+    // Start the animation
+    const animationTimeout = setTimeout(typeText, 500);
+    
+    return () => {
+      clearTimeout(animationTimeout);
+    };
+  }, [value]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
@@ -29,7 +91,7 @@ export default function SearchInput({
   };
 
   return (
-    <div className="search-input-wrapper">
+    <div className="search-input-wrapper" style={{ position: 'relative', zIndex: isDropdownOpen ? 1001 : 1 }}>
       <div className="search-field">
         <div className="search-icon">
           <svg 
@@ -49,14 +111,13 @@ export default function SearchInput({
         </div>
         
         <input
+          ref={inputRef}
           type="text"
           className="search-input"
           value={value}
           onChange={handleChange}
           onClick={onFocus}
           placeholder={placeholder}
-          aria-expanded={isDropdownOpen}
-          aria-autocomplete="list"
           aria-controls="search-dropdown"
         />
         

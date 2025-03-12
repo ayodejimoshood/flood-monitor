@@ -17,13 +17,8 @@ export default function ReadingsTable({ measure }: ReadingsTableProps) {
     const fetchReadings = async () => {
       try {
         setLoading(true);
-        // Extract measure ID from the URL
-        const measureId = measure['@id'].split('/').pop();
-        if (!measureId) {
-          throw new Error('Invalid measure ID');
-        }
-        
-        const readingsData = await getMeasureReadings(measureId);
+        // Use the full measure ID - the API will handle extracting the ID if needed
+        const readingsData = await getMeasureReadings(measure['@id']);
         // Sort readings by dateTime in descending order (newest first)
         const sortedReadings = readingsData.sort((a, b) => 
           new Date(b.dateTime).getTime() - new Date(a.dateTime).getTime()
@@ -31,8 +26,9 @@ export default function ReadingsTable({ measure }: ReadingsTableProps) {
         setReadings(sortedReadings);
         setCurrentPage(1); // Reset to first page when measure changes
         setLoading(false);
-      } catch (err) {
+      } catch (error) {
         setError('Failed to load readings. Please try again later.');
+        console.error('Error fetching readings:', error);
         setLoading(false);
       }
     };

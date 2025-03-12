@@ -32,6 +32,13 @@ export const getStationMeasures = async (stationId: string) => {
 // Get readings for a specific measure over the last 24 hours
 export const getMeasureReadings = async (measureId: string) => {
   try {
+    // Extract the ID if a full URL is provided
+    const id = measureId.includes('/') ? measureId.split('/').pop() : measureId;
+    
+    if (!id) {
+      throw new Error('Invalid measure ID');
+    }
+    
     // Get the current date and the date 24 hours ago
     const now = new Date();
     const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
@@ -39,7 +46,7 @@ export const getMeasureReadings = async (measureId: string) => {
     // Format dates for the API
     const startDate = yesterday.toISOString();
     
-    const response = await axios.get<ReadingsResponse>(`${BASE_URL}/id/measures/${measureId}/readings`, {
+    const response = await axios.get<ReadingsResponse>(`${BASE_URL}/id/measures/${id}/readings`, {
       params: {
         since: startDate,
         _sorted: true

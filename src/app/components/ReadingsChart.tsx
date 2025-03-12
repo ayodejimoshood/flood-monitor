@@ -16,17 +16,13 @@ export default function ReadingsChart({ measure }: ReadingsChartProps) {
     const fetchReadings = async () => {
       try {
         setLoading(true);
-        // Extract measure ID from the URL
-        const measureId = measure['@id'].split('/').pop();
-        if (!measureId) {
-          throw new Error('Invalid measure ID');
-        }
-        
-        const readingsData = await getMeasureReadings(measureId);
+        // Use the full measure ID - the API will handle extracting the ID if needed
+        const readingsData = await getMeasureReadings(measure['@id']);
         setReadings(readingsData);
         setLoading(false);
-      } catch (err) {
+      } catch (error) {
         setError('Failed to load readings. Please try again later.');
+        console.error('Error fetching readings:', error);
         setLoading(false);
       }
     };
@@ -189,6 +185,7 @@ export default function ReadingsChart({ measure }: ReadingsChartProps) {
               }} 
             />
             <Line 
+              key="reading-line"
               type="monotone" 
               dataKey="value" 
               name={measure.parameterName} 
