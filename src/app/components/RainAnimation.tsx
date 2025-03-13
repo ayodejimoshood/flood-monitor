@@ -1,6 +1,6 @@
 "use client"; // added the directive, as we are using react hooks
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 interface Raindrop {
   id: number;
@@ -12,7 +12,6 @@ interface Raindrop {
 }
 
 interface RainAnimationProps {
-  duration?: number; // Duration in milliseconds before the animation fades out (now ignored)
   intensity?: 'light' | 'medium' | 'heavy' | 'storm'; // Added 'storm' intensity
 }
 
@@ -20,13 +19,12 @@ const RainAnimation: React.FC<RainAnimationProps> = ({
   intensity = 'medium'
 }) => {
   const [raindrops, setRaindrops] = useState<Raindrop[]>([]);
-  const [visible, setVisible] = useState(true);
   const nextRaindropId = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [thunderEffect, setThunderEffect] = useState(false);
   
-  // Determine raindrop count based on intensity
-  const getRaindropCount = () => {
+  // Determine raindrop count based on intensity - using useCallback to memoize
+  const getRaindropCount = useCallback(() => {
     switch (intensity) {
       case 'light': return 30;
       case 'heavy': return 100;
@@ -34,10 +32,10 @@ const RainAnimation: React.FC<RainAnimationProps> = ({
       case 'medium':
       default: return 60;
     }
-  };
+  }, [intensity]);
   
-  // Determine raindrop creation interval based on intensity
-  const getCreationInterval = () => {
+  // Determine raindrop creation interval based on intensity - using useCallback to memoize
+  const getCreationInterval = useCallback(() => {
     switch (intensity) {
       case 'light': return 300;
       case 'heavy': return 50;
@@ -45,7 +43,7 @@ const RainAnimation: React.FC<RainAnimationProps> = ({
       case 'medium':
       default: return 100;
     }
-  };
+  }, [intensity]);
 
   // Thunder effect for storm intensity
   useEffect(() => {
@@ -120,12 +118,7 @@ const RainAnimation: React.FC<RainAnimationProps> = ({
       clearInterval(splashInterval);
       console.log("RainAnimation cleanup");
     };
-  }, [intensity]);
-  
-  if (!visible) {
-    console.log("RainAnimation is not visible");
-    return null;
-  }
+  }, [getRaindropCount, getCreationInterval]);
   
   return (
     <div 

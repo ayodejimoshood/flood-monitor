@@ -180,9 +180,13 @@ export default function ReadingsChart({ measure }: ReadingsChartProps) {
                 borderRadius: 'var(--radius-sm)',
                 // boxShadow: 'var(--shadow)'
               }}
-              formatter={(value, name, props) => {
+              formatter={(
+                value, 
+                name, 
+                // props
+              ) => {
                 return [
-                  <span key="value">{value} {measure.unitName}</span>,
+                  <span key="value">{value} {name} {measure.unitName}</span>,
                   <span key="label">{measure.parameterName}</span>
                 ];
               }}
