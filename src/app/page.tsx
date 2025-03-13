@@ -53,7 +53,7 @@ export default function Home() {
             flexWrap: 'wrap'
           }}>
             <a 
-              href="https://github.com/ayodejimoshood/flood-monitor/releases/download/v0.1.0/UK%20Flood%20Monitor-0.1.0-arm64.dmg" 
+              href="https://github.com/ayodejimoshood/flood-monitor/releases" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn"
