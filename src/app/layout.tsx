@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./platform.css";
 import PlatformUI from "./components/PlatformUI";
+import RainAnimation from "./components/RainAnimation";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "UK Flood Monitoring Tool",
@@ -18,13 +20,21 @@ export default function RootLayout({
       <body>
         <PlatformUI />
         
-        <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+        <div id="rain-animation-container" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999, pointerEvents: 'none' }}>
+          <Suspense fallback={null}>
+            <RainAnimation intensity="storm" />
+          </Suspense>
+        </div>
+        
+        <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem', position: 'relative', zIndex: 1 }}>
           {children}
         </main>
         <footer style={{ 
           borderTop: '1px solid var(--border-color)',
           padding: '2rem 0',
           marginTop: '3rem',
+          position: 'relative',
+          zIndex: 1
         }}>
           <div style={{ 
             maxWidth: '1200px', 
