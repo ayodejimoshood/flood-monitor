@@ -6,11 +6,11 @@ A web and desktop application for monitoring real-time flood data from the UK En
 
 You can download the latest version of UK Flood Monitor for your platform:
 
-- [macOS](https://github.com/ayodejimoshood/flood-monitor/releases/download/v0.1.0/UK.Flood.Monitor-0.1.0-arm64.dmg) (Apple Silicon & Intel)
+- [macOS](https://github.com/ayodejimoshood/flood-monitor/releases/download/v0.1.0/UK%20Flood%20Monitor-0.1.0-arm64.dmg) (Apple Silicon & Intel)
 - Windows (Coming Soon)
 - Linux (Coming Soon)
 
-Or visit our [download page](https://floodmonitor.netlify.app) for more information.
+Or visit our [releases page](https://github.com/ayodejimoshood/flood-monitor/releases) for more download options and information.
 
 ## Features
 
