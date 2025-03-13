@@ -2,6 +2,14 @@
 
 A web and desktop application for monitoring real-time flood data from the UK Environmental Agency's measurement stations across the country.
 
+<div align="center">
+  <h3>Light Mode</h3>
+  <img src="public/lightmode.png" alt="UK Flood Monitor - Light Mode" width="800" />
+  
+  <h3>Dark Mode</h3>
+  <img src="public/darkmode.png" alt="UK Flood Monitor - Dark Mode" width="800" />
+</div>
+
 ## Download
 
 You can download the latest version of UK Flood Monitor from our [GitHub Releases page](https://github.com/ayodejimoshood/flood-monitor/releases).
