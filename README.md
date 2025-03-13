@@ -1,6 +1,16 @@
-# UK Flood Monitoring Tool
+# UK Flood Monitor
 
-A web application that interacts with the UK Environmental Agency's real-time flood-monitoring API to display water level and flow data from measurement stations across the UK.
+A web and desktop application for monitoring real-time flood data from the UK Environmental Agency's measurement stations across the country.
+
+## Download
+
+You can download the latest version of UK Flood Monitor for your platform:
+
+- [macOS](https://github.com/ayodejimoshood/flood-monitor/releases/download/v0.1.0/UK.Flood.Monitor-0.1.0-arm64.dmg) (Apple Silicon & Intel)
+- Windows (Coming Soon)
+- Linux (Coming Soon)
+
+Or visit our [download page](https://floodmonitor.netlify.app) for more information.
 
 ## Features
 
@@ -27,45 +37,53 @@ This application uses the UK Environmental Agency's real-time flood-monitoring A
 
 ### Prerequisites
 
-- Node.js 18.17 or later
+- Node.js 18+ and npm
 
 ### Installation
 
 1. Clone the repository
-2. Install dependencies:
-   ```bash
+   ```
+   git clone https://github.com/ayodejimoshood/flood-monitor.git
+   cd flood-monitor
+   ```
+
+2. Install dependencies
+   ```
    npm install
    ```
-3. Start the development server:
-   ```bash
+
+3. Run the development server
+   ```
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Usage
+4. Run the Electron app in development mode
+   ```
+   npm run electron:dev
+   ```
 
-1. Select a measurement station from the dropdown or search for a specific station
-2. Choose a measure type (e.g., water level, flow)
-3. View the readings data displayed as a line chart and in a table format
+### Building for Production
 
-## Building for Production
+To build the desktop application for your platform:
 
-```bash
-npm run build
+```
+npm run electron:build
 ```
 
-Then, you can start the production server:
+For specific platforms:
 
-```bash
-npm start
 ```
+npm run electron:build:mac    # macOS
+npm run electron:build:win    # Windows
+npm run electron:build:linux  # Linux
+```
+
+This will create distributable packages in the `dist` directory.
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the MIT License.
 
-## Acknowledgements
+## Author
 
-- Data provided by the [UK Environmental Agency](https://environment.data.gov.uk/flood-monitoring/doc/reference)
-- This project uses the Environment Agency flood and river level data from the real-time data API (Beta)
-# flood-monitor
+Developed with ❤ by [Ayodeji Moshood](https://github.com/ayodejimoshood)

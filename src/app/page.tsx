@@ -49,16 +49,43 @@ export default function Home() {
             display: 'flex', 
             justifyContent: 'center', 
             gap: '1rem',
-            marginBottom: '2rem'
+            marginBottom: '1rem',
+            flexWrap: 'wrap'
           }}>
             <a 
-              href="https://environment.data.gov.uk/flood-monitoring/doc/reference" 
+              href="https://github.com/ayodejimoshood/flood-monitor/releases/download/v0.1.0/UK.Flood.Monitor-0.1.0-arm64.dmg" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn"
               style={{ height: '2.75rem' }}
             >
-              API Documentation
+              Download for Mac 
+            </a>
+            <a 
+              href="#" 
+              onClick={(e) => e.preventDefault()}
+              className="btn btn-outline"
+              style={{ 
+                height: '2.75rem',
+                opacity: 0.7,
+                cursor: 'not-allowed'
+              }}
+              title="Coming Soon"
+            >
+              Download for Windows
+            </a>
+            <a 
+              href="#" 
+              onClick={(e) => e.preventDefault()}
+              className="btn btn-outline"
+              style={{ 
+                height: '2.75rem',
+                opacity: 0.7,
+                cursor: 'not-allowed'
+              }}
+              title="Coming Soon"
+            >
+              Download for Linux
             </a>
             <a 
               href="https://github.com/ayodejimoshood/flood-monitor" 
@@ -70,6 +97,26 @@ export default function Home() {
               View on GitHub
             </a>
           </div>
+          <p style={{ 
+            fontSize: '0.875rem', 
+            color: 'var(--text-secondary)',
+            textAlign: 'center',
+            marginBottom: '2rem'
+          }}>
+            Get the desktop app for a better experience. Windows and Linux versions coming soon.
+            <a 
+              href="https://environment.data.gov.uk/flood-monitoring/doc/reference" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                marginLeft: '0.5rem',
+                color: 'var(--primary-color)',
+                textDecoration: 'none'
+              }}
+            >
+              API Documentation
+            </a>
+          </p>
         </div>
         
         <div className="dashboard-layout">

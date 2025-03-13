@@ -1,0 +1,93 @@
+/* Platform-specific styles */
+
+/* Windows custom title bar */
+.windows-title-bar {
+  display: none;
+  height: 32px;
+  background-color: var(--card-background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  -webkit-app-region: drag;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.platform-win32 .windows-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.windows-title {
+  margin-left: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.windows-controls {
+  display: flex;
+  -webkit-app-region: no-drag;
+}
+
+.windows-control-button {
+  width: 46px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.windows-control-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.windows-control-button.close:hover {
+  background-color: #e81123;
+}
+
+.windows-control-button.close:hover svg {
+  fill: white;
+}
+
+.windows-control-button svg {
+  width: 10px;
+  height: 10px;
+  fill: var(--text-color);
+}
+
+/* Mac-specific styles */
+.platform-darwin .mac-traffic-lights {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+}
+
+/* Content adjustments for Windows title bar */
+.platform-win32 main {
+  margin-top: 32px;
+}
+
+/* Linux-specific styles */
+.platform-linux .linux-app-menu {
+  display: flex;
+  padding: 8px 16px;
+  background-color: var(--card-background);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.platform-linux .linux-app-menu-item {
+  margin-right: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.platform-linux .linux-app-menu-item:hover {
+  color: var(--text-color);
+} 

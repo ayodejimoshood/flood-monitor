@@ -179,7 +179,7 @@ export default function StationSelector({ onStationSelect }: StationSelectorProp
       
       {selectedStation && (
         <div style={{ 
-          marginTop: '2rem',
+          marginTop: '1rem',
           padding: '1.5rem',
           backgroundColor: 'var(--card-background)',
           borderRadius: 'var(--radius)',
